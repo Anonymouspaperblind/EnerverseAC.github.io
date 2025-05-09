@@ -140,6 +140,19 @@
 </section>
 <!-- End teaser video -->
 
+<section class="hero teaser img">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <img src="static/images/image.png" />
+
+      <h2 class="subtitle has-text-centered">
+
+      </h2>
+    </div>
+  </div>
+</section>
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -148,7 +161,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Robotic imitation learning has advanced from solving static tasks to addressing dynamic interaction scenarios, but testing and evaluation remain costly and challenging due to the need for real-time interaction with dynamic environments. We propose EnerVerse-AC(abbr. EVAC), an action-conditional world model that generates future visual observations based on an agent’s predicted actions, enabling realistic and controllable robotic inference. Building on prior architectures, EVAC introduces a multi-level action-conditioning mechanism and ray map encoding for dynamic multi-view image generation while expanding training data with diverse failure trajectories to improve generalization. As both a data engine and evaluator, EVAC augments human-collected trajectories into diverse datasets and generates realistic, action-conditioned video observations for policy testing, eliminating the need for physical robots or complex simulations. This approach significantly reduces costs while maintaining high fidelity in robotic manipulation evaluation. Extensive experiments validate the effectiveness of our method. Code, checkpoints, and datasets will be released.
+            <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit. -->
           </p>
         </div>
       </div>
@@ -198,53 +212,30 @@
 <!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
+<!-- Multi-view generation -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3">Multi-view generation</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
+            <source src="static/videos/multi-view/v1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
+            <source src="static/videos/multi-view/v2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
             <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
+            <source src="static/videos/multi-view/v3.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -256,11 +247,213 @@
 
 
 
+<section class="comparison">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Ablation</h2>
+      
+      <div class="content has-text-justified">
+        <p>EVAC with delta attention module can successfully learn the dynamics.</p>
+      </div>
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column  has-text-centered">
+          <h2>With delta action module</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/cmp_cross_attn/with_ca/outputs_1149-16127-A2D0015AB00044-1045892_1149-16127-A2D0015AB00044-1045892_33.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column  has-text-centered">
+          <h2>Without delta action module</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/cmp_cross_attn/wo_ca/outputs_1149-16127-A2D0015AB00044-1045892_1149-16127-A2D0015AB00044-1045892_33.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>EVAC with failure data as dataset can successfully mimic the realistic.</p>
+      </div>
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column  has-text-centered">
+          <h2>With failure data</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/cmp_fail_data/video_with_failure_data.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column  has-text-centered">
+          <h2>Without failure data</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/cmp_fail_data/video_without_failure_data.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>EVAC simulated in Libero </p>
+      </div>
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column  has-text-centered">
+          <h2>Rollout 1 in EVAC</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_pd_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column  has-text-centered">
+          <h2>Rollout 1 in Libero</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_gt_v_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column  has-text-centered">
+          <h2>Rollout 2 in EVAC</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_pd_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column  has-text-centered">
+          <h2>Rollout 2 in Libero</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_gt_v_2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column  has-text-centered">
+          <h2>Rollout 3 in EVAC</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_pd_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column  has-text-centered">
+          <h2>Rollout 3 in Libero</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_gt_v_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column  has-text-centered">
+          <h2>Rollout 4 in EVAC</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_pd_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column  has-text-centered">
+          <h2>Rollout 4 in Libero</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/libero_examples/libero_gt_v_4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+
+
+      <div class="content has-text-justified">
+        <p>Evaluation results comparison</p>
+      </div>
+      
+      <!-- Case 1: Water Bottle (Failure) -->
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column has-text-centered">
+          <h2>Water Bottle Failure (Prediction)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/watterbottle_failure_case1_pd.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h2>Water Bottle Failure (Ground Truth)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/watterbottle_failure_case1_gt.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Case 2: Water Bottle (Success) -->
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column has-text-centered">
+          <h2>Water Bottle Success (Prediction)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/watterbottle_success_case2_pd.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h2>Water Bottle Success (Ground Truth)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/watterbottle_success_case2_gt.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Case 3: Lettuce (Failure) -->
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column has-text-centered">
+          <h2>Lettuce Failure (Prediction)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/lettuce_failure_case3_pd.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h2>Lettuce Failure (Ground Truth)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/lettuce_failure_case3_gt.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Case 4: Toast (Success) -->
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column has-text-centered">
+          <h2>Toast Success (Prediction)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/toast_sucess_case4_pd.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h2>Toast Success (Ground Truth)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/toast_sucess_case4_gt.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Case 5: Bacon (Success) -->
+      <div class="columns is-vcentered interpolation-panel">
+        <div class="column has-text-centered">
+          <h2>Bacon Success (Prediction)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/bacon_success_case5_pd.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <h2>Bacon Success (Ground Truth)</h2>
+          <video autoplay controls muted loop playsinline width="80%">
+            <source src="static/videos/evaluator/bacon_success_case5_gt.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
 
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -270,8 +463,8 @@
         
       </div>
     </div>
-  </section>
-<!--End paper poster -->
+  </section> -->
+<!-- End paper poster -->
 
 
 <!--BibTex citation -->
@@ -292,7 +485,7 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
